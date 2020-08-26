@@ -1,0 +1,65 @@
+@model List<Hobby>
+    <h1 class="title">Hobbies</h1>
+
+    <div class="row">
+        <div class="col-7 hobby">
+            <table class=" table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Enthusiasts</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach(var h in Model)
+                    {
+                    <tr>
+                        <td><a href="/hobby/@h.HobbyId">@h.Name</a></td>
+                        <td>@h.Enthusiasts.Count</td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-4 ranks">
+
+            <h6>Top Novice:</h6>
+            <ul>
+                @foreach(var h in ViewBag.Novice){
+                if(ViewBag.Novice.Count == 0){
+                <p>None</p>
+                } else {
+                <p>@h.Name</p>
+                }
+                }
+            </ul>
+
+            <h6>Top Intermediate:</h6>
+            <ul>
+                @foreach(var h in ViewBag.Intermediate){
+                if(ViewBag.Intermediate.Count == 0){
+                <p>None</p>
+                } else {
+                <p>@h.Name</p>
+                }
+                }
+            </ul>
+
+            <h6>Top Expert:</h6>
+            <ul>
+                @foreach(var h in ViewBag.Expert){
+                if(ViewBag.Expert.Count == 0){
+                <p>None</p>
+                } else {
+                <p>@h.Name</p>
+                }
+                }
+            </ul>
+
+        </div>
+
+    </div>
+    <a class="btn btn-outline-primary" href="/new">Create a Hobby</a>

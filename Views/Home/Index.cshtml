@@ -1,0 +1,47 @@
+﻿@model User
+
+<div class="register-area mx-auto">
+
+  <h1 class="title">Hobby Hub!</h1>
+
+    <form class="card col-7 mx-auto" action="/register" method="post">
+        <div class="form-group row">
+            <label asp-for="FirstName" class="col-sm-3 col-form-label">First Name</label>
+            <div class="col-sm-9">
+                <input class="form-control" id="FirstName" asp-for="FirstName">
+                <span class="text-danger" asp-validation-for="FirstName"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="LastName" class="col-sm-3 col-form-label">Last Name</label>
+            <div class="col-sm-9">
+                <input class="form-control" id="LastName" asp-for="LastName">
+                <span class="text-danger" asp-validation-for="LastName"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="UserName" class="col-sm-3 col-form-label">UserName</label>
+            <div class="col-sm-9">
+                <input class="form-control" id="UserName" asp-for="UserName">
+                <span class="text-danger" asp-validation-for="UserName"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Password" class="col-sm-3 col-form-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" id="Password" asp-for="Password">
+                <span class="text-danger" asp-validation-for="Password"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Confirm" class="col-sm-3 col-form-label">Confirm PW</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" id="Confirm" asp-for="Confirm">
+                <span class="text-danger" asp-validation-for="Confirm"></span>
+            </div>
+        </div>
+        <button class="btn btn-outline-primary btn-block" type="submit">Register</button>
+        <a class="btn btn-outline-dark" href="/loginpage">Login</a>
+    </form>
+    
+</div>

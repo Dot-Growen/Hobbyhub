@@ -1,0 +1,6 @@
+bin/
+appsettings.json
+obj/
+.vscode/
+Migrations/
+MyContext.db

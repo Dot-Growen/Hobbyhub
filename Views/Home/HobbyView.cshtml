@@ -1,0 +1,43 @@
+@model List<Association>
+
+<h1 class="title1">@ViewBag.ViewHobby.Name</h1>
+<div class="row desc-area">
+    <h5 class="col-2 desc">Description:</h5>
+    <p class="col-10">@ViewBag.ViewHobby.Description</p>
+</div>
+<a class="btn btn-outline-primary" href="/edit/@ViewBag.ViewHobby.HobbyId">Edit Hobby</a>
+
+<h5 class="row title1">@ViewBag.ViewHobby.Name Enthusiasts:</h5>
+<div class="row ">
+<div class="ranks col-6">
+    <table class="table table-hover ">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Proficiency</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var u in Model){
+            <tr>
+                <td>@u.HobbiesUsers.FirstName</td>
+                <td>@u.Proficiency</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+    <div class="col-5 area2">
+        <h5>Become an Enthusiast!</h5>
+        <form action="/add" method="POST">
+            <input type="hidden" name="HobbyId" value="@ViewBag.ViewHobby.HobbyId">
+            <input type="hidden" name="UserId" value="@ViewBag.User.UserId">
+            <select class="form-control" name="Proficiency">
+                <option value="Novice">Novice</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Expert">Expert</option>
+            </select>
+            <button class="btn1 btn btn-outline-primary" type="sumbit">Add to Hobbies</button>
+        </form>
+    </div>
+</div>

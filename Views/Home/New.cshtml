@@ -1,0 +1,19 @@
+@model Hobby
+<h3 class="title">Create a Hobby</h3>
+<div class="card mx-auto col-8">
+    <form action="/createhobby" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Name">Name</label>
+                <input type="text" class="form-control" asp-for="Name">
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Description">Description</label>
+                <textarea class="form-control" asp-for="Description"></textarea>
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
