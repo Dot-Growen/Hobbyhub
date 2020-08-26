@@ -22,8 +22,7 @@ namespace belt_exam {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices (IServiceCollection services) {
-            services.AddSession (); // SESSION
-            services.AddDbContext<MyContext> (options => options.UseSqlite ("Data Source=MyContext.db")); // Sqlite Keep above other "AddDbContext"
+            services.AddSession (); // SESSION // Sqlite Keep above other "AddDbContext"
             services.AddDbContext<MyContext> (o => o.UseMySql (Configuration["DBInfo:ConnectionString"])); // CONTEXT/DATABASE
             services.AddControllersWithViews ();
             services.AddMvc (option => option.EnableEndpointRouting = false); // MVC
